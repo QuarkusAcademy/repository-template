@@ -1,0 +1,87 @@
+image:
+  file: .gitpod.Containerfile
+
+tasks:
+  - name: BUILD
+    init: ./scripts/build-dev.sh
+
+  - name: CORE
+    command: ./scripts/core-dev.sh
+
+  - name: WEB
+    command: ./scripts/web-dev.sh
+
+  - name: API
+    command: ./scripts/api-dev.sh
+
+  - name: VDN
+    command: ./scripts/vdn-dev.sh
+
+  - name: SKN
+    command: ./scripts/app-dev.sh
+
+  - name: PROXY
+    command: ./scripts/proxy-dev.sh
+  
+  - name: SHELL
+    command: |
+      echo "Hello from the shell, wait a minute for preview..."
+      source ./scripts/utils.sh
+      awaitTCP 9999
+      gp preview http://localhost:9999
+
+ports:
+  # DB
+  - port: 65432
+    onOpen: ignore
+    visibility: public
+    
+  # PROXY
+  - port: 9999
+    onOpen: ignore
+    visibility: public
+  
+  # WEB
+  - port: 9090
+    onOpen: ignore
+    visibility: public
+
+  # API
+  - port: 9091
+    onOpen: ignore
+    visibility: public
+
+  - port: 5005
+    onOpen: ignore
+    visibility: private
+
+  # VDN
+  - port: 9092
+    onOpen: ignore
+    visibility: public
+
+  # APP
+  - port: 9093
+    onOpen: ignore
+    visibility: public
+
+
+  # OTHERS
+  - port: 24000
+    onOpen: ignore
+    visibility: public
+
+vscode:
+  extensions:
+    - vscjava.vscode-java-pack
+    - vscjava.vscode-java-debug
+    - vscjava.vscode-java-dependency
+    - vscjava.vscode-java-test
+    - vscjava.vscode-maven
+    - redhat.java
+    - esbenp.prettier-vscode
+    - svelte.svelte-vscode
+    - ms-vscode.vscode-typescript-next
+
+additionalRepositories:
+  - url: https://github.com/CaravanaCloud/ecomarkets-secrets
