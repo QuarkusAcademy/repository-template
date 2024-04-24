@@ -2,37 +2,19 @@ image:
   file: .gitpod.Containerfile
 
 tasks:
-  - name: BUILD
-    init: ./scripts/build-dev.sh
-
-  - name: CORE
-    command: ./scripts/core-dev.sh
-
-  - name: WEB
-    command: ./scripts/web-dev.sh
-
-  - name: API
-    command: ./scripts/api-dev.sh
-
-  - name: VDN
-    command: ./scripts/vdn-dev.sh
-
-  - name: SKN
-    command: ./scripts/app-dev.sh
-
-  - name: PROXY
-    command: ./scripts/proxy-dev.sh
-  
   - name: SHELL
-    command: |
-      echo "Hello from the shell, wait a minute for preview..."
-      source ./scripts/utils.sh
-      awaitTCP 9999
-      gp preview http://localhost:9999
+    init: |
+      java --version
+      mvn --version
+      quarkus --version
+      aws --version
+      echo "GitPod init at $(date)"
+    command:
+      echo "GitPod command at $(date)"
 
 ports:
   # DB
-  - port: 65432
+  - port: 5432
     onOpen: ignore
     visibility: public
     
@@ -47,29 +29,24 @@ ports:
     visibility: public
 
   # API
-  - port: 9091
+  - port: 9001
     onOpen: ignore
     visibility: public
 
+  # OTHER MODULES
+  # - port: 900X
+  #  onOpen: ignore
+  #  visibility: public
+
+  # Debugger
   - port: 5005
     onOpen: ignore
     visibility: private
-
-  # VDN
-  - port: 9092
-    onOpen: ignore
-    visibility: public
-
-  # APP
-  - port: 9093
-    onOpen: ignore
-    visibility: public
-
-
-  # OTHERS
+  
+  # OTHERS PORTS
   - port: 24000
     onOpen: ignore
-    visibility: public
+    visibility: private
 
 vscode:
   extensions:
@@ -83,5 +60,6 @@ vscode:
     - svelte.svelte-vscode
     - ms-vscode.vscode-typescript-next
 
-additionalRepositories:
-  - url: https://github.com/CaravanaCloud/ecomarkets-secrets
+#additionalRepositories:
+#
+#  - url: https://github.com/CaravanaCloud/PROJECT-secrets

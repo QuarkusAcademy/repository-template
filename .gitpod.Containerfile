@@ -13,9 +13,13 @@ RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh \
     && sdk default java $JAVA_SDK \
     && sdk install quarkus \
     && sdk install maven \
+    && sdk install jbang \
+    && sdk install jreleaser \
     "
 
 # AWS CLIs
+WORKDIR /tmp
+
 RUN bash -c "curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o 'awscliv2.zip' && unzip awscliv2.zip \
     && sudo ./aws/install \
     && aws --version \
