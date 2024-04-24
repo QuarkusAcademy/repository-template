@@ -16,7 +16,7 @@ RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh \
     && sdk install jbang \
     && sdk install jreleaser \
     "
-
+ 
 # AWS CLIs
 WORKDIR /tmp
 
