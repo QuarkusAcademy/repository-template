@@ -9,7 +9,7 @@ on:
     
 
 jobs:
-  lint:
+  build-project:
     runs-on: ubuntu-latest
     
     steps:
@@ -19,5 +19,12 @@ jobs:
           java-version: '21'      
           distribution: 'graalvm-community' 
           github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2-
       - name: Maven
         run: mvn --batch-mode --update-snapshots
