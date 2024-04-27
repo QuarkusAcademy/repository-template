@@ -24,6 +24,10 @@ ports:
     visibility: public
   
   # WEB
+  - port: 8080
+    onOpen: ignore
+    visibility: public
+
   - port: 9090
     onOpen: ignore
     visibility: public
