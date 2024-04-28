@@ -1,4 +1,5 @@
-# How to setup a developer environment on WLS?
+# How to setup a developer environment on Linux or Windows Subsystem for Linux?
+
 Run powershell (cmd+R > powershell)
 
 Check winget
