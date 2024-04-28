@@ -77,7 +77,8 @@ echo '[user]' > /etc/wsl.conf && echo 'default=builder' >> /etc/wsl.conf
 Install System tools
 ```bash
 yum install @development-tools zip unzip gh
-```bash
+exit
+```
 
 
 Restart WSL
