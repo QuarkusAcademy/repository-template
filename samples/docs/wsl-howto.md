@@ -2,6 +2,12 @@
 
 Run powershell (cmd+R > powershell)
 
+Check WSL
+```
+wsl --version
+```
+https://learn.microsoft.com/en-us/windows/wsl/install#install-wsl-
+
 Check winget
 ```
 winget --version
