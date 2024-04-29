@@ -67,18 +67,29 @@ wsl -d $WSLName
 ## User Setup
 In bash, as root
 
+Install System tools
+```bash
+yum install @development-tools zip unzip gh which docker
+```
+
+```bash
+dnf -y install dnf-plugins-core
+dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+groupadd docker
+usermod -aG docker builder
+
+```
+
 ```bash
 useradd builder
 passwd builder
 usermod -aG wheel builder
 echo '[user]' > /etc/wsl.conf && echo 'default=builder' >> /etc/wsl.conf
-```
-
-Install System tools
-```bash
-yum install @development-tools zip unzip gh
 exit
 ```
+
 
 
 Restart WSL
@@ -90,9 +101,15 @@ wsl -d $WSLName
 
 ## Tools Setup
 
-SdkMan
+Docker verification
 ```bash
 whoami
+docker ps
+docker run hello-world
+```
+
+SdkMan
+```bash
 curl -s "https://get.sdkman.io" | bash
 source "/home/builder/.sdkman/bin/sdkman-init.sh"
 sdk install java 22-graalce
