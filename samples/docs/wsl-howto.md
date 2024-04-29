@@ -119,6 +119,9 @@ sdk install quarkus
 
 GitHub
 ```
+cd 
+mkdir workspace
+cd workspace
 gh auth login
 gh repo clone QuarkusAcademy/pizza-delivery
 ```
