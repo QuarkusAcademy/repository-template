@@ -79,7 +79,7 @@ dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-co
 
 groupadd docker
 usermod -aG docker builder
-
+newgrp docker
 ```
 
 ```bash
