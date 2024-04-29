@@ -19,15 +19,6 @@ Install 7zip
 winget install --id 7zip.7zip
 ```
 
-Install an IDE:
-* VSCode and WSL Extension
-https://code.visualstudio.com/insiders/
-https://code.visualstudio.com/docs/remote/wsl
-
-* IntelliJ IDEA
-https://www.jetbrains.com/idea/
-
-
 Download and extract the Fedora base container (Powershell)
 ```pwsh
 $DownloadURL = "https://kojipkgs.fedoraproject.org/packages/Fedora-Container-Base/40/20240222.n.0/images/Fedora-Container-Base-40-20240222.n.0.x86_64.tar.xz"
@@ -137,6 +128,16 @@ cd pizza-delivery
 code .
 mvn
 ```
+
+# Ready to roll!
+
+Install an IDE:
+* VSCode and WSL Extension
+https://code.visualstudio.com/insiders/
+https://code.visualstudio.com/docs/remote/wsl
+
+* IntelliJ IDEA
+https://www.jetbrains.com/idea/
 
 
 # After done
