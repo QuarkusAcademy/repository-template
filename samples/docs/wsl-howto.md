@@ -61,7 +61,7 @@ In bash, as root
 
 Install System tools
 ```bash
-yum install @development-tools zip unzip gh which docker
+yum install @development-tools zip unzip gh which  dnf-plugins-core
 ```
 
 
@@ -76,17 +76,6 @@ echo 'systemd=true' >> /etc/wsl.conf
 echo '' >> /etc/wsl.conf
 ```
 
-
-```bash
-dnf -y install dnf-plugins-core
-dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-groupadd docker
-usermod -aG docker builder
-newgrp docker
-```
-
 Restart WSL
 ```pwsh
 exit
@@ -94,6 +83,19 @@ wsl --terminate $WSLName
 wsl -d $WSLName
 ```
 
+```bash
+sudo -s
+
+dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+groupadd docker
+usermod -aG docker builder
+newgrp docker
+
+systemctl enable docker
+systemctl start docker
+```
 
 ## Tools Setup
 
