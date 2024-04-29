@@ -52,6 +52,7 @@ $WSLDir = "$env:USERPROFILE\wsl\$WSLName"
 mkdir -p $WSLDir
 $RootFSPath = "$env:USERPROFILE\Downloads\fedora-40-rootfs.tar"
 wsl --import $WSLName $WSLDir $RootFSPath
+
 ```
 
 Verify that the distribution is created
@@ -72,15 +73,6 @@ Install System tools
 yum install @development-tools zip unzip gh which docker
 ```
 
-```bash
-dnf -y install dnf-plugins-core
-dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-groupadd docker
-usermod -aG docker builder
-newgrp docker
-```
 
 ```bash
 useradd builder
@@ -91,13 +83,22 @@ echo 'default=builder' >> /etc/wsl.conf
 echo '[boot]' >> /etc/wsl.conf
 echo 'systemd=true' >> /etc/wsl.conf
 echo '' >> /etc/wsl.conf
-exit
 ```
 
 
+```bash
+dnf -y install dnf-plugins-core
+dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+groupadd docker
+usermod -aG docker builder
+newgrp docker
+```
 
 Restart WSL
 ```pwsh
+exit
 wsl --terminate $WSLName
 wsl -d $WSLName
 ```
