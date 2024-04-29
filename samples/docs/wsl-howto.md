@@ -86,7 +86,11 @@ newgrp docker
 useradd builder
 passwd builder
 usermod -aG wheel builder
-echo '[user]' > /etc/wsl.conf && echo 'default=builder' >> /etc/wsl.conf
+echo '[user]' > /etc/wsl.conf
+echo 'default=builder' >> /etc/wsl.conf
+echo '[boot]' >> /etc/wsl.conf
+echo 'systemd=true' >> /etc/wsl.conf
+echo '' >> /etc/wsl.conf
 exit
 ```
 
