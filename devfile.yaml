@@ -1,0 +1,17 @@
+schemaVersion: 2.2.0
+metadata:
+  name: devbox-devfile
+  version: 1.0.0
+components:
+  - name: devbox
+    container:
+      image: ghcr.io/jetpack-io/devbox:latest
+      mountSources: true
+      command: ["sleep"]
+      args: ["infinity"]
+      volumeMounts:
+        - name: devbox-cache
+          path: /root/.cache/devbox
+volumes:
+  - name: devbox-cache
+    size: 2Gi

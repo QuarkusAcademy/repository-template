@@ -12,7 +12,7 @@
   
     "shell": {
       "init_hook": [
-        "source ./scripts/devbox_init_hook.sh"
+        "source ./scripts/devboxInitHook.sh"
       ],
   
       "scripts": {
