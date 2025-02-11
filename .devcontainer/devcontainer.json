@@ -10,7 +10,7 @@
     "forwardPorts": [
         8080
     ],
-    "postCreateCommand": "scripts/postCreatecommand.sh",
+    "postCreateCommand": "postCreatecommand.sh",
     "customizations": {
         "codespaces": {
             "vscode": {
