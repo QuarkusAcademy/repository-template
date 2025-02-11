@@ -1,0 +1,33 @@
+{
+    "name": "Devcontainer + Devbox",
+    "image": "mcr.microsoft.com/devcontainers/java",
+    "features": {
+        "ghcr.io/dlouwers/devcontainer-features/devbox:1": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2.12.0": {},
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers-extra/features/aws-cdk:2": {}
+    },
+    "forwardPorts": [
+        8080
+    ],
+    "postCreateCommand": "scripts/postCreatecommand.sh",
+    "customizations": {
+        "codespaces": {
+            "vscode": {
+                "settings": {},
+                "extensions": [
+                    "jetpack-io.devbox",
+                    "ms-azuretools.vscode-docker",
+                    "github.copilot",
+                    "github.copilot-chat",
+                    "vscjava.vscode-java-pack",
+                    "vscjava.vscode-java-debug",
+                    "vscjava.vscode-java-dependency",
+                    "vscjava.vscode-java-test",
+                    "vscjava.vscode-maven",
+                    "redhat.java"
+                ]
+            }
+        }
+    }
+}

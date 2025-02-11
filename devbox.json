@@ -1,0 +1,25 @@
+{
+    "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.6/.schema/devbox.schema.json",
+    "packages": [
+      "graalvm-ce@latest",
+      "maven@latest",
+      "quarkus@latest",
+      "awscli2@latest",
+      "direnv@latest",
+      "mysql-client@latest",
+      "flyway@latest"
+    ],
+  
+    "shell": {
+      "init_hook": [
+        "source ./scripts/devbox_init_hook.sh"
+      ],
+  
+      "scripts": {
+        "build":   "mvn",
+        "clean":   "mvn clean",
+        "tests":   "mvn verify",
+        "images":  "docker build ."
+      }
+    }
+  }
